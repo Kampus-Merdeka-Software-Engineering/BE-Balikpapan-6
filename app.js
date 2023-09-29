@@ -2,13 +2,13 @@ const express = require('express')
 
 const fs = require('fs');
 
-const { productRoutes } = require('./routes/productRoutes')
-const pathToPublicFolder = __dirname + 'public'
+const { productRoutes } = require('./routes/');
+const PORT  = process.env.PORT || 3000;
 
-const app = express();
-const PORT = 3000;
+const router = express.Router();
 
-app.use(express.static(pathToPublicFolder))
+app.use(cors())
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {

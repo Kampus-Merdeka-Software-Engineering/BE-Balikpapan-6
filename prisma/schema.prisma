@@ -9,3 +9,34 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  user_id Int @id @default(autoincrement())
+  created_at DateTime @default(now())
+  username String
+  name String
+  birthdate DateTime
+  email String
+  password String
+}
+
+model Customer {
+  customer_id Int @id @default(autoincrement())
+  created_at DateTime @default(now())
+  user_id Int
+  new_cust_ind String
+}
+
+model Order {
+  order_id Int @id @default(autoincrement())
+  created_at DateTime @default(now())
+  user_id Int
+  new_cust_ind String
+}
+
+model PaymentMethod {
+  order_id Int @id @default(autoincrement())
+  created_at DateTime @default(now())
+  user_id Int
+  new_cust_ind String
+}
