@@ -1,27 +1,26 @@
-const express = require('express')
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors')
+const app = express();
+const {userRoutes} = require('./routes/userRoute');
+const {logger} = require('./middleware/logger');
+const PORT = 3000 || process.env.PORT;
 
-const fs = require('fs');
-
-const { productRoutes } = require('./routes/');
-const PORT  = process.env.PORT || 3000;
-
-const router = express.Router();
-
+// Middleware
 app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
-    res.send("Halo dari Aplikasi Express")
-})
+app.use(logger)
 
-app.get('/login', (req, res) => {
-    console.log(__dirname)
-    res.sendFile('./public/login.html', { root: __dirname })
-})
+app.use('/', userRoutes);
 
-app.use("/products", productRoutes)
+app.use('/users', userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Aplikasi sudah berjalan pada http://localhost:${PORT}`)
-})
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Internal server error' });
+});
+
+
+app.listen(PORT, () => console.log('Server ready on port:', PORT));

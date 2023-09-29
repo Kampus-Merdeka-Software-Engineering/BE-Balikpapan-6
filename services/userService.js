@@ -1,15 +1,29 @@
-const {prisma} = require ('../config');
+const {prisma} = require('../config/prisma.js');
 
-async function getUser() {
+async function getUsers() {
     try {
-        const userRes = await prisma.user.findMany()
-        return userRes;
+        const user = await prisma.user.findMany();
+        console.log(user);
+        return user;
     } catch (error) {
-        console.error(error);
-        throw new Error()
+        console.log(error);
     }
-}   
+}
+
+async function getUserById(userId) {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                user_id: Number(userId)
+            }
+        })
+        return user
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
 module.exports = {
-    getUser
+    getUserById,
+    getUsers
 };
