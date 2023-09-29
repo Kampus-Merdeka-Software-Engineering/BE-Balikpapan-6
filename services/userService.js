@@ -1,4 +1,4 @@
-const {prisma} = require('../config/prisma.js');
+const { prisma } = require('../config/prisma.js');
 
 async function getUsers() {
     try {
@@ -23,7 +23,42 @@ async function getUserById(userId) {
     }
 }
 
+async function createUser(user) {
+    try {
+        const createdUser = await prisma.user.create({
+            data: {
+                email: user.email,
+                username: user.username,
+                password: user.password,
+            }
+        })
+        return createdUser;
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+async function updateUserById(userId, updatedUser) {
+    try {
+        const userUpdate = await prisma.user.update({
+            where: {
+                id: Number(userId)
+            },
+            data: {
+                email: updatedUser.email,
+                username: updatedUser.username,
+                password: updatedUser.password,
+            }
+        })
+        return userUpdate;
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
 module.exports = {
+    getUsers,
     getUserById,
-    getUsers
+    createUser,
+    updateUserById
 };
