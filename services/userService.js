@@ -27,8 +27,10 @@ async function createUser(user) {
     try {
         const createdUser = await prisma.user.create({
             data: {
-                email: user.email,
+                name: user.name,
                 username: user.username,
+                birthdate: user.birthdate,
+                email: user.email,
                 password: user.password,
             }
         })
@@ -42,9 +44,11 @@ async function updateUserById(userId, updatedUser) {
     try {
         const userUpdate = await prisma.user.update({
             where: {
-                id: Number(userId)
+                user_id: Number(userId)
             },
             data: {
+                name: updatedUser.name,
+                birthdate: updatedUser.birthdate,
                 email: updatedUser.email,
                 username: updatedUser.username,
                 password: updatedUser.password,

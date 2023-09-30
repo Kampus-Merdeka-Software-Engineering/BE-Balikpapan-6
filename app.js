@@ -18,10 +18,10 @@ app.get("/", (req, res) => {
     res.send("INI MAIN")
 });
 
-app.use('/users', userRoutes);
-app.use('/user/:userId', userRoutes);
-app.use('/user/create', userRoutes);
-app.use('/user/update', userRoutes);
+app.get('/users', userRoutes);
+app.get('/user/:userId', userRoutes);
+app.post('/user/create', userRoutes);
+app.put('/user/update', userRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

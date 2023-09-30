@@ -1,0 +1,36 @@
+### getUsers
+GET http://localhost:3000/users
+User-Agent: rest-client
+Content-Type: application/json
+
+### getUserById
+GET http://localhost:3000/user/1
+User-Agent: rest-client
+Content-Type: application/json
+
+### createUser
+POST http://localhost:3000/user/create
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "name": "User Testing 1",
+    "username": "testinguser1",
+    "birthdate": "2002-05-01T07:00:00.000+07:00",
+    "email": "testinguser1@email.com",
+    "password": "tes123"
+}
+
+### updateUserById
+PUT http://localhost:3000/user/update
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "user_id": 5,
+    "name": "User Testing 2",
+    "username": "testinguser2",
+    "birthdate": "2002-05-02T07:00:00.000+07:00",
+    "email": "testinguser2@email.com",
+    "password": "tes123"
+}
