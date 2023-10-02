@@ -5,7 +5,7 @@ const app = express();
 const { logger } = require('./middleware/logger');
 const PORT = 3000 || process.env.PORT;
 
-const { userRoutes } = require('./routes/userRoute');
+const routes = require('./routes');
 
 // Middleware
 app.use(cors())
@@ -14,14 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-app.get("/", (req, res) => {
-    res.send("INI MAIN")
-});
+// app.get("/", (req, res) => {
 
-app.get('/users', userRoutes);
-app.get('/user/:userId', userRoutes);
-app.post('/user/create', userRoutes);
-app.put('/user/update', userRoutes);
+// });
+
+app.use('/api', routes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
