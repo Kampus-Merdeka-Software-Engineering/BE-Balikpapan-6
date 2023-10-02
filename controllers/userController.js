@@ -3,7 +3,6 @@ const { customerService } = require('../services');
 
 async function getUsers(req, res) {
     try {
-        console.log("getUsers");
         const users = await userService.getUsers();
         res.status(200).json({
             message: "Successfully fetched all users",
@@ -83,9 +82,28 @@ async function updateUserById(req, res) {
     }
 }
 
+async function login (req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+    try {
+        const user = await userService.login(email, password);
+        if (!user) {
+            return res.status(404).json({ error: 'Email or Password is incorrect!' });
+        }
+        res.status(200).json({
+            message: "Login successfully",
+            data: user
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
 module.exports = {
     getUsers,
     getUserById,
     createUser,
-    updateUserById
+    updateUserById,
+    login
 };

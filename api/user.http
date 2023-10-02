@@ -34,3 +34,13 @@ Content-Type: application/json
     "email": "testinguser2@email.com",
     "password": "tes123"
 }
+
+### updateUserById
+PUT http://localhost:3000/api/user/login
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "email": "derizheesse@gmail.com",
+    "password": "tes123"
+}

@@ -60,9 +60,29 @@ async function updateUserById(userId, updatedUser) {
     }
 }
 
+async function login(email, password) {
+    try {
+        const user = await prisma.user.findFirst({
+            where: {
+                email: email,
+                password: password
+            }, select: {
+                user_id: true,
+                email: true,
+                username: true,
+                name: true,
+            },
+        })
+        return user;
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
 module.exports = {
     getUsers,
     getUserById,
     createUser,
-    updateUserById
+    updateUserById,
+    login
 };
