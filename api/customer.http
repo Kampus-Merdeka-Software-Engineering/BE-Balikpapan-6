@@ -1,0 +1,13 @@
+### getCustomerById
+GET http://localhost:3000/api/customer/2
+User-Agent: rest-client
+Content-Type: application/json
+
+### updateNewCustInd
+POST http://localhost:3000/api/customer/update
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "customer_id": 2
+}

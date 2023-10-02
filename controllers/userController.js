@@ -1,4 +1,5 @@
 const { userService } = require('../services');
+const { customerService } = require('../services');
 
 async function getUsers(req, res) {
     try {
@@ -17,7 +18,6 @@ async function getUsers(req, res) {
 async function getUserById(req, res) {
     const { userId } = req.params;
     try {
-        console.log("getUser By ID");
         const user = await userService.getUserById(userId);
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
@@ -34,7 +34,10 @@ async function getUserById(req, res) {
 
 async function createUser(req, res) {
     try {
+        console.log("ini user");
         const userId = await userService.createUser(req.body);
+        console.log("ini cust");
+        const customerId = await customerService.createCustomer(userId);
         res.status(201).json({ userId });
     } catch (error) {
         console.error(error);

@@ -2,11 +2,11 @@ const express = require('express');
 const { userController } = require('../controllers');
 const userRoutes = express.Router();
 
-userRoutes.get('/users', userController.getUsers);
-userRoutes.post('/user/create', userController.createUser);
-userRoutes.get('/user/:userId', userController.getUserById);
-userRoutes.put('/user/update', userController.updateUserById);
+const API = '/user';
 
-module.exports = {
-    userRoutes
-}
+userRoutes.get(API + '/getAllUser', userController.getUsers);
+userRoutes.post(API + '/create', userController.createUser);
+userRoutes.get(API + '/:userId', userController.getUserById);
+userRoutes.put(API +'/update', userController.updateUserById);
+
+module.exports = userRoutes;
