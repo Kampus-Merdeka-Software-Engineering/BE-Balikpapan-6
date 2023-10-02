@@ -4,7 +4,7 @@ User-Agent: rest-client
 Content-Type: application/json
 
 ### getUserById
-GET http://localhost:3000/api/user/1
+GET http://localhost:3000/api/user/getUserById/1
 User-Agent: rest-client
 Content-Type: application/json
 
