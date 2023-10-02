@@ -1,39 +1,82 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model user {
-  user_id Int @id @default(autoincrement())
-  created_at DateTime @default(now())
-  username String
-  name String
-  birthdate DateTime
-  email String
-  password String
+    user_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    username String
+    name String
+    birthdate DateTime
+    email String
+    password String
 }
 
 model customer {
-  customer_id Int @id @default(autoincrement())
-  created_at DateTime @default(now())
-  user_id Int
-  new_cust_ind String
+    customer_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    user_id Int
+    new_cust_ind String
 }
 
 model order {
-  order_id Int @id @default(autoincrement())
-  created_at DateTime @default(now())
-  user_id Int
-  new_cust_ind String
+    order_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    user_id Int
+    new_cust_ind String
 }
 
 model payment_method {
-  order_id Int @id @default(autoincrement())
-  created_at DateTime @default(now())
-  user_id Int
-  new_cust_ind String
+    order_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    user_id Int
+    new_cust_ind String
+}
+
+model order_item {
+    order_item_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    product_id Int
+    order_id Int
+    order_qty Int
+    defunct_ind String
+}
+
+model product {
+    product_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    product_name String
+    color String
+    qty Int
+    price Int
+    product_img String
+    category String
+}
+
+model invoice {
+    invoice_id Int @id @default(autoincrement())
+    invoice_date DateTime @default(now())
+    invoice_status String
+    order_id Int 
+}
+
+model payment {
+    payment_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    invoice_id Int 
+    payment_amount Int
+}
+
+model shipment {
+    shipment_id Int @id @default(autoincrement())
+    created_at DateTime @default(now())
+    invoice_id Int 
+    address String
+    city String
+    province String
 }
