@@ -33,9 +33,7 @@ async function getUserById(req, res) {
 
 async function createUser(req, res) {
     try {
-        console.log("ini user");
         const userId = await userService.createUser(req.body);
-        console.log("ini cust");
         const customerId = await customerService.createCustomer(userId);
         res.status(201).json({ userId });
     } catch (error) {

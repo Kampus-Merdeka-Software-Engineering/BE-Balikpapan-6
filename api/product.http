@@ -1,0 +1,24 @@
+### getProducts
+GET http://localhost:3000/api/product/getProducts
+User-Agent: rest-client
+Content-Type: application/json
+
+### getProductById
+GET http://localhost:3000/api/product/getProductById/22
+User-Agent: rest-client
+Content-Type: application/json
+
+### getProductsByCategory
+GET http://localhost:3000/api/product/getProductsByCategory/FORMAL
+User-Agent: rest-client
+Content-Type: application/json
+
+### updateProductQty
+PUT http://localhost:3000/api/product/updateProductQty
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "product_id": 22,
+    "qty": 61
+}
