@@ -16,7 +16,6 @@ async function getOrderByCustomerId (custId) {
 
 async function createOrder(customer_id) {
     try {
-        console.log(customer_id);
         const createdOrder = await prisma.order.create({
             data: {
                 customer_id: customer_id,

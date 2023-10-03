@@ -4,7 +4,7 @@ User-Agent: rest-client
 Content-Type: application/json
 
 ### getProductById
-GET http://localhost:3000/api/product/getProductById/22
+GET http://localhost:3000/api/product/getProductById/4
 User-Agent: rest-client
 Content-Type: application/json
 
@@ -19,6 +19,6 @@ User-Agent: rest-client
 Content-Type: application/json
 
 {
-    "product_id": 22,
-    "qty": 61
+    "product_id": 4,
+    "qty": 8
 }

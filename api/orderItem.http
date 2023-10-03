@@ -1,0 +1,29 @@
+### getOrderItemById
+GET http://localhost:3000/api/orderItem/getOrderItemById/3
+User-Agent: rest-client
+Content-Type: application/json
+
+### getOrderItemsByOrderId
+GET http://localhost:3000/api/orderItem/getOrderItemsByOrderId/6
+User-Agent: rest-client
+Content-Type: application/json
+
+### createOrderItem
+POST http://localhost:3000/api/orderItem/createOrderItem
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "product_id": 7,
+    "customer_id": 2,
+    "order_qty": 1
+}
+
+### deleteOrderItem
+PUT http://localhost:3000/api/orderItem/deleteOrderItem
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "order_item_id": 2
+}
