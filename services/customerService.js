@@ -2,7 +2,6 @@ const { prisma } = require('../config/prisma.js');
 
 async function createCustomer(data) {
     try {
-        console.log("masuk sini");
         const createdCustomer = await prisma.customer.create({
             data: {
                 user_id: data.user_id,

@@ -1,0 +1,16 @@
+### getShipmentByInvoiceId
+GET http://localhost:3000/api/shipment/getShipmentByInvoiceId/4
+User-Agent: rest-client
+Content-Type: application/json
+
+### createShipment
+POST http://localhost:3000/api/shipment/createShipment
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "invoice_id": 4,
+    "address": "Jl. Derizheese",
+    "city": "Medan",
+    "province": "Sumatra Utara"
+}
