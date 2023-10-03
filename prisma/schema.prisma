@@ -34,7 +34,7 @@ model order {
 model payment_method {
     payment_method_id Int @id @default(autoincrement())
     created_at DateTime @default(now())
-    user_id Int
+    customer_id Int
     card_no Int
     card_holder String
     expiration_month String
