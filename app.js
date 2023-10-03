@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const { logger } = require('./middleware/logger');
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const routes = require('./routes');
 
