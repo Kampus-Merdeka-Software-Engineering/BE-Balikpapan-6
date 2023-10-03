@@ -1,0 +1,22 @@
+### getOrderByCustomerId
+GET http://localhost:3000/api/order/getOrderByCustomerId/3
+User-Agent: rest-client
+Content-Type: application/json
+
+### createOrder
+POST http://localhost:3000/api/order/createOrder
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "customer_id": 2
+}
+
+### orderComplete
+PUT http://localhost:3000/api/order/orderComplete
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "order_id": 4
+}
