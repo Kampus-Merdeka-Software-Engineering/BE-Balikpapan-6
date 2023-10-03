@@ -27,15 +27,19 @@ model customer {
 model order {
     order_id Int @id @default(autoincrement())
     created_at DateTime @default(now())
-    user_id Int
-    new_cust_ind String
+    customer_id Int
+    order_complete_ind String
 }
 
 model payment_method {
-    order_id Int @id @default(autoincrement())
+    payment_method_id Int @id @default(autoincrement())
     created_at DateTime @default(now())
     user_id Int
-    new_cust_ind String
+    card_no Int
+    card_holder String
+    expiration_month String
+    expiration_year String
+    cvv Int
 }
 
 model order_item {
