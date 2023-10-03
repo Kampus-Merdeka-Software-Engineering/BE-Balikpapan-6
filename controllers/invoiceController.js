@@ -1,5 +1,6 @@
 const { invoiceService } = require('../services');
 const { orderService } = require('../services');
+const { paymentService } = require('../services');
 
 async function getInvoiceByOrderId (req, res) {
     const orderId = req.params.orderId;
@@ -24,7 +25,11 @@ async function createInvoice (req, res) {
 
         if (!checkInvoice || checkInvoice.length === 0) {
             const invoice = await invoiceService.createInvoice(req.body.order_id);
-            res.status(200).json({ invoice });
+
+            let data = req.body;
+            data.invoice_id = invoice.invoice_id;
+            const payment = await paymentService.createPayment(req.body);
+            res.status(200).json({ invoice, payment });
         } else {
             res.status(200).json({ checkInvoice });
         }

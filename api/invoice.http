@@ -9,7 +9,8 @@ User-Agent: rest-client
 Content-Type: application/json
 
 {
-    "order_id": 6
+    "order_id": 6,
+    "payment_amount": 50000
 }
 
 ### paidInvoice
