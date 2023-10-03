@@ -5,6 +5,7 @@ const orderController = require('./orderController');
 const orderItemController = require('./orderItemController');
 const invoiceController = require('./invoiceController');
 const shipmentController = require('./shipmentController');
+const paymentController = require('./paymentController');
 
 module.exports = {
     userController,
@@ -13,5 +14,6 @@ module.exports = {
     orderController,
     orderItemController,
     invoiceController,
-    shipmentController
+    shipmentController,
+    paymentController
 };

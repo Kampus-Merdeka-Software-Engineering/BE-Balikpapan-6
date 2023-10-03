@@ -1,0 +1,14 @@
+### getPaymentByInvoiceId
+GET http://localhost:3000/api/payment/getPaymentByInvoiceId/6
+User-Agent: rest-client
+Content-Type: application/json
+
+### createPayment
+POST http://localhost:3000/api/payment/createPayment
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "invoice_id": 1,
+    "payment_amount": 50000,
+}
