@@ -1,0 +1,31 @@
+### getInvoiceByOrderId
+GET http://localhost:3000/api/invoice/getInvoiceByOrderId/6
+User-Agent: rest-client
+Content-Type: application/json
+
+### createInvoice
+POST http://localhost:3000/api/invoice/createInvoice
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "order_id": 6
+}
+
+### paidInvoice
+PUT http://localhost:3000/api/invoice/paidInvoice
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "invoice_id": 1
+}
+
+### cancelInvoice
+PUT http://localhost:3000/api/invoice/cancelInvoice
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "invoice_id": 3
+}
