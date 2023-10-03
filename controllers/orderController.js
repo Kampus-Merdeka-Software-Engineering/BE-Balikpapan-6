@@ -1,6 +1,6 @@
 const { orderService } = require('../services');
 
-async function getOrderByCustomerId(req, res) {
+async function getOrderByCustomerId (req, res) {
     const { custId } = req.params;
     try {
         const order = await orderService.getOrderByCustomerId(custId);
@@ -17,7 +17,7 @@ async function getOrderByCustomerId(req, res) {
     }
 }
 
-async function createOrder(req, res) {
+async function createOrder (req, res) {
     try {
         const orderId = await orderService.createOrder(req.body.customer_id);
         res.status(201).json({ orderId });
