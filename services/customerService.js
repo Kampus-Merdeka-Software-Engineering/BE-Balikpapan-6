@@ -14,6 +14,19 @@ async function createCustomer(data) {
     }
 }
 
+async function getCustomerByUserId(userId) {
+    try {
+        const customer = await prisma.customer.findMany({
+            where: {
+                user_id: Number(userId)
+            }
+        })
+        return customer
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
 async function getCustomerById(customerId) {
     try {
         const customer = await prisma.customer.findUnique({
@@ -45,6 +58,7 @@ async function updateNewCustInd(customerId) {
 
 module.exports = {
     getCustomerById,
+    getCustomerByUserId,
     createCustomer,
     updateNewCustInd
 };

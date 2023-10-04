@@ -10,6 +10,23 @@ async function createCustomer(req, res) {
     }
 }
 
+async function getCustomerByUserId (req, res) {
+    const { userId } = req.params;
+    try {
+        const customer = await customerService.getCustomerByUserId(userId);
+        if (!customer) {
+            return res.status(404).json({ error: 'Customer not found' });
+        }
+        res.status(200).json({
+            message: "Successfully fetched customer",
+            data: customer
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
 async function getCustomerById(req, res) {
     const { customerId } = req.params;
     try {
@@ -42,6 +59,7 @@ async function updateNewCustInd(req, res) {
 
 module.exports = {
     createCustomer,
+    getCustomerByUserId,
     getCustomerById,
     updateNewCustInd
 }
