@@ -8,6 +8,15 @@ GET http://localhost:3000/api/customer/getCustomerByUserId/1
 User-Agent: rest-client
 Content-Type: application/json
 
+### getCustomerByUserId
+POST http://localhost:3000/api/customer/createCustomer
+User-Agent: rest-client
+Content-Type: application/json
+
+{
+    "user_id": 2
+}
+
 ### updateNewCustInd
 POST http://localhost:3000/api/customer/update
 User-Agent: rest-client
