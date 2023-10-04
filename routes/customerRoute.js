@@ -4,7 +4,8 @@ const customerRoutes = express.Router();
 
 const API = '/customer';
 
-customerRoutes.get(API + '/:customerId', customerController.getCustomerById);
+customerRoutes.get(API + '/getCustomerById/:customerId', customerController.getCustomerById);
+customerRoutes.get(API + '/getCustomerByUserId/:userId', customerController.getCustomerByUserId);
 customerRoutes.post(API + '/update', customerController.updateNewCustInd);
 
 module.exports = customerRoutes;
