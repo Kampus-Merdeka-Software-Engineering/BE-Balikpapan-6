@@ -37,7 +37,7 @@ async function createOrderItem(req, res) {
             order = await orderService.createOrder(req.body.customer_id);
         }
 
-        req.body.order_id = order[0].order_id;
+        req.body.order_id = order.order_id;
 
         const orderItem = await orderItemService.createOrderItem(req.body);
         const product = await productService.getProductById(req.body.product_id);
