@@ -47,6 +47,23 @@ async function getProductsByCategory (req, res) {
     }
 }
 
+async function getProductsByName (req, res) {
+    const { name } = req.params;
+    try {
+        const product = await productService.getProductsByName(name);
+        if (!product) {
+            return res.status(404).json({ error: 'No Product found' });
+        }
+        res.status(200).json({
+            message: "Successfully fetched products",
+            data: product
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
 async function updateProductQty (req, res) {
     const productId = req.body.product_id;
     const qty = req.body.qty;
@@ -65,5 +82,6 @@ module.exports = {
     getProducts,
     getProductById,
     getProductsByCategory,
+    getProductsByName,
     updateProductQty
 };

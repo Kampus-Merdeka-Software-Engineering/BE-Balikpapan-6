@@ -13,6 +13,11 @@ GET http://localhost:3000/api/product/getProductsByCategory/FORMAL
 User-Agent: rest-client
 Content-Type: application/json
 
+### getProductsByName
+GET http://localhost:3000/api/product/getProductsByName/bla
+User-Agent: rest-client
+Content-Type: application/json
+
 ### updateProductQty
 PUT http://localhost:3000/api/product/updateProductQty
 User-Agent: rest-client

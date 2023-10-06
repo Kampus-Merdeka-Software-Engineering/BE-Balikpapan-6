@@ -35,6 +35,38 @@ async function getProductsByCategory(category) {
     }
 }
 
+async function getProductsByName(name) {
+    try {
+        const product = await prisma.product.findMany({
+            where: {
+                OR: [
+                    {
+                        product_name: {
+                            contains: name,
+                            mode: 'insensitive',
+                        },
+                    },
+                    {
+                        product_name: {
+                            startsWith: name,
+                            mode: 'insensitive'
+                        }
+                    },
+                    {
+                        product_name: {
+                            endsWith: name,
+                            mode: 'insensitive'
+                        }
+                    }
+                ]
+            }
+        });
+        return product;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 async function updateProductQty(productId, qty) {
     try {
         const productQtyUpdate = await prisma.product.update({
@@ -55,5 +87,6 @@ module.exports = {
     getProducts,
     getProductById,
     getProductsByCategory,
+    getProductsByName,
     updateProductQty
 };
