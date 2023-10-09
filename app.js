@@ -14,10 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-// app.get("/", (req, res) => {
-
-// });
-
 app.use('/api', routes);
 
 app.use((err, req, res, next) => {
